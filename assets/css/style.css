@@ -365,6 +365,66 @@ a { color: inherit; }
   .tools__group { grid-template-columns: 14rem 1fr; }
 }
 
+/* ---- 8.5 เครื่องมือที่สร้างเอง --------------------------------
+   ใช้จังหวะเดียวกับหมวด "เส้นทาง" (คอลัมน์ซ้ายแคบ + เส้นคั่นบาง)
+   ตั้งใจไม่มีรูป เพราะเครื่องมือ CLI ไม่มีอะไรให้ถ่าย
+   ไม่ใช่การ์ดที่รูปหาย                                            */
+.build {
+  display: grid;
+  gap: .5rem 2.5rem;
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+.build:last-child { border-bottom: 1px solid var(--rule); }
+
+.build__aside { padding-top: .45rem; }
+
+.build__index {
+  font-size: .75rem;
+  letter-spacing: .16em;
+  color: var(--ink-mute);
+}
+
+.build__stack {
+  margin-top: .3rem;
+  font-size: .8125rem;
+  color: var(--ink-mute);
+}
+
+.build__title {
+  font-size: clamp(1.125rem, 2.2vw, 1.45rem);
+}
+
+/* เส้นใต้ชื่อค่อย ๆ ลากจากซ้ายไปขวาตอนชี้ — แบบเดียวกับหมวดผลงาน */
+.build__link {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  transition: background-size .45s var(--ease);
+  padding-bottom: 2px;
+}
+.build:hover .build__link,
+.build__link:focus-visible { background-size: 100% 1px; }
+
+.build__desc {
+  margin-top: .5rem;
+  color: var(--ink-soft);
+}
+
+.build__detail {
+  margin-top: .4rem;
+  font-size: .9375rem;
+  color: var(--ink-mute);
+}
+
+.build__links { margin-top: 1rem; }
+
+@media (min-width: 720px) {
+  .build { grid-template-columns: 14rem 1fr; }
+}
+
 /* ---- 9. เส้นทาง --------------------------------------------- */
 .timeline__item {
   display: grid;
