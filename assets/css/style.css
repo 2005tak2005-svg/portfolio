@@ -368,7 +368,41 @@ a { color: inherit; }
 /* ---- 8.5 เครื่องมือที่สร้างเอง --------------------------------
    ใช้จังหวะเดียวกับหมวด "เส้นทาง" (คอลัมน์ซ้ายแคบ + เส้นคั่นบาง)
    ตั้งใจไม่มีรูป เพราะเครื่องมือ CLI ไม่มีอะไรให้ถ่าย
-   ไม่ใช่การ์ดที่รูปหาย                                            */
+   ไม่ใช่การ์ดที่รูปหาย
+
+   ผังขั้นตอน (.flow) อยู่เหนือรายการเครื่องมือ — ไม่ใช้กล่องหรือลูกศรกราฟิก
+   เขียนเป็นลำดับขั้นด้วยตัวหนังสือ คั่นด้วยอักขระลูกศร แล้วปล่อยให้ตัดบรรทัดเอง
+   เหมือนขั้นตอนวิธีทำในสิ่งพิมพ์ ไม่ใช่ flowchart แบบซอฟต์แวร์               */
+.flow {
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 1px solid var(--rule);
+}
+
+.flow__label {
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.flow__steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem 0;
+  margin-top: .75rem;
+  padding: 0;
+  list-style: none;
+  font-size: .9375rem;
+  color: var(--ink-soft);
+}
+.flow__steps li { display: flex; align-items: center; }
+.flow__steps li:not(:last-child)::after {
+  content: "→";
+  margin-inline: .6rem;
+  color: var(--ink-mute);
+}
+
 .build {
   display: grid;
   gap: .5rem 2.5rem;

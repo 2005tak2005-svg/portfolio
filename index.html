@@ -208,44 +208,88 @@
         <p class="section__note measure" data-reveal>เขียนขึ้นเพื่อแก้ปัญหาหน้างานจริง ไม่ใช่งานฝึกหัด</p>
       </div>
 
+      <div class="flow" data-reveal>
+        <p class="flow__label">เฟส 1 — จากไฟล์ไลฟ์ดิบ ถึงคลิปต่อสินค้า</p>
+        <ol class="flow__steps">
+          <li>โหลดไฟล์ไลฟ์ล่าสุดจากแดชบอร์ด</li>
+          <li>ถอดเสียงทั้งไฟล์ในเครื่อง</li>
+          <li>หาขอบเขตช่วงเวลาของสินค้าแต่ละชิ้น</li>
+          <li>เสนอรายการให้ตรวจก่อนตัดจริง</li>
+          <li>ตัดออกเป็นคลิปแยกทีละสินค้า</li>
+          <li>บันทึกลงทะเบียนสินค้า</li>
+        </ol>
+      </div>
+
+      <div class="flow" data-reveal>
+        <p class="flow__label">เฟส 2 — จากคลิปดิบ ถึงคลิปพร้อมโพสต์</p>
+        <ol class="flow__steps">
+          <li>รับคลิปต่อสินค้าจากเฟส 1</li>
+          <li>วิเคราะห์จังหวะคำพูดแบบละเอียด</li>
+          <li>ตัดช่วงที่ไม่มีคนพูดออก</li>
+          <li>เบิร์นคำบรรยายไทยลงคลิป</li>
+          <li>ส่งออกเป็น MP4 หรือโปรเจกต์ CapCut ที่แก้ต่อได้</li>
+        </ol>
+      </div>
+
       <ol class="builds">
 
         <li class="build" data-reveal>
           <div class="build__aside">
             <p class="build__index">01</p>
-            <p class="build__stack">‹ ภาษา · เครื่องมือที่ใช้ ›</p>
+            <p class="build__stack">Node.js · ffmpeg · whisper.cpp</p>
           </div>
           <div class="build__body">
-            <h3 class="build__title"><a class="build__link" href="#">‹ ชื่อเครื่องมือ ›</a></h3>
-            <p class="build__desc measure">‹ แก้ปัญหาอะไร — เขียนจากมุมของปัญหา ไม่ใช่มุมของโค้ด ›</p>
-            <p class="build__detail measure">‹ ทำงานยังไงโดยย่อ และผลที่ได้ เช่น ลดเวลาจากกี่ชั่วโมงเหลือกี่นาที ›</p>
-            <p class="build__links"><a class="link-arrow" href="#">ดูโค้ด</a></p>
+            <h3 class="build__title">video-understand</h3>
+            <p class="build__desc measure">ไลฟ์ขายของยาวเป็นชั่วโมง จะรู้ว่าใครพูดถึงสินค้าชิ้นไหนตอนไหน ต้องนั่งดูทั้งคลิปเอง</p>
+            <p class="build__detail measure">ถอดเสียงคลิปทั้งไฟล์และหาช่วงเวลาที่พูดถึงสินค้าแต่ละชิ้นให้อัตโนมัติ ทำงานในเครื่องล้วน ไม่ส่งไฟล์ขึ้นคลาวด์ ไม่มีค่า API ต่อการรัน</p>
           </div>
         </li>
 
         <li class="build" data-reveal>
           <div class="build__aside">
             <p class="build__index">02</p>
-            <p class="build__stack">‹ ภาษา · เครื่องมือที่ใช้ ›</p>
+            <p class="build__stack">Node.js · ffmpeg · browser automation</p>
           </div>
           <div class="build__body">
-            <h3 class="build__title"><a class="build__link" href="#">‹ ชื่อเครื่องมือ ›</a></h3>
-            <p class="build__desc measure">‹ แก้ปัญหาอะไร ›</p>
-            <p class="build__detail measure">‹ ทำงานยังไงโดยย่อ และผลที่ได้ ›</p>
-            <p class="build__links"><a class="link-arrow" href="#">ดูโค้ด</a></p>
+            <h3 class="build__title">live-daily-cut</h3>
+            <p class="build__desc measure">หลังไลฟ์ขายของจบทุกวัน ต้องโหลดไฟล์ ฟังทวนทั้งไฟล์ แล้วตัดแยกเป็นคลิปทีละสินค้าเอง งานซ้ำเดิมที่กินเวลาหลักชั่วโมงทุกวัน</p>
+            <p class="build__detail measure">ดาวน์โหลดไฟล์ไลฟ์ล่าสุดจากแดชบอร์ดให้เอง ถอดเสียง หาขอบเขตของแต่ละสินค้า แล้วเสนอรายการช่วงเวลาให้ตรวจก่อนตัดจริงเสมอ ต่อยอดจาก video-understand</p>
           </div>
         </li>
 
         <li class="build" data-reveal>
           <div class="build__aside">
             <p class="build__index">03</p>
-            <p class="build__stack">‹ ภาษา · เครื่องมือที่ใช้ ›</p>
+            <p class="build__stack">Node.js · whisper.cpp · Remotion</p>
           </div>
           <div class="build__body">
-            <h3 class="build__title"><a class="build__link" href="#">‹ ชื่อเครื่องมือ ›</a></h3>
-            <p class="build__desc measure">‹ แก้ปัญหาอะไร ›</p>
-            <p class="build__detail measure">‹ ทำงานยังไงโดยย่อ และผลที่ได้ ›</p>
-            <p class="build__links"><a class="link-arrow" href="#">ดูโค้ด</a></p>
+            <h3 class="build__title">reel-refiner</h3>
+            <p class="build__desc measure">คลิปต่อสินค้าที่ตัดมาแล้วยังมีช่วงเงียบเยอะและไม่มีคำบรรยาย ต้องมาตัดต่อและใส่ซับเองทีละคลิปก่อนโพสต์ได้</p>
+            <p class="build__detail measure">ตัดช่วงที่ไม่มีคนพูดออกโดยดูจากบทพูดจริงแทนระดับเสียง แล้วเบิร์นคำบรรยายไทยที่จับจังหวะคำพูดลงคลิปให้อัตโนมัติ</p>
+          </div>
+        </li>
+
+        <li class="build" data-reveal>
+          <div class="build__aside">
+            <p class="build__index">04</p>
+            <p class="build__stack">Node.js · Python</p>
+          </div>
+          <div class="build__body">
+            <h3 class="build__title">capcut-draft</h3>
+            <p class="build__desc measure">คลิปที่ตัดต่อไว้แล้วอยากเอาไปแก้ต่อใน CapCut ปกติต้องนำเข้าไฟล์แล้วจัดวางคลิป เสียง คำบรรยายใหม่ทั้งหมดด้วยมือ</p>
+            <p class="build__detail measure">สร้างไฟล์โปรเจกต์ CapCut ที่เปิดมาแล้วมีคลิป เสียง และคำบรรยายวางเรียงพร้อมแก้ไขต่อได้ทันที โดยไม่ต้องเรนเดอร์วิดีโอออกมาก่อน</p>
+          </div>
+        </li>
+
+        <li class="build" data-reveal>
+          <div class="build__aside">
+            <p class="build__index">05</p>
+            <p class="build__stack">Swift · Apple Vision · Node.js</p>
+          </div>
+          <div class="build__body">
+            <h3 class="build__title">product-diecut</h3>
+            <p class="build__desc measure">รูปสินค้าที่ถ่ายมาต้องตัดพื้นหลังออกก่อนเอาไปวางบนพื้นอื่นหรือทำกราฟิก ปกติต้องเปิดโปรแกรมตัดต่อรูปแล้วไล่ขอบเอง</p>
+            <p class="build__detail measure">ตัดวัตถุออกจากพื้นหลังเป็นไฟล์ PNG โปร่งใสให้อัตโนมัติทีละรูปหรือทั้งโฟลเดอร์ ทำงานในเครื่องล้วน ไม่ต่อเน็ต</p>
           </div>
         </li>
 
