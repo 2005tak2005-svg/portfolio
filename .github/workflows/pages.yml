@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# pages: write ให้สิทธิ์ทั้งเปิดใช้งาน Pages และ deploy
+# id-token: write ใช้ยืนยันตัวตนตอน deploy
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ถ้า push ซ้อนกันหลายครั้ง ให้ deploy ทีละอัน ไม่ยกเลิกอันที่กำลังทำงานอยู่
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # บรรทัด enablement: true คือตัวที่เปิด GitHub Pages ให้เอง
+      # ไม่ต้องเข้าไปกดสวิตช์ใน Settings
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # อัปโหลดไฟล์ทั้งโฟลเดอร์ตามจริง ไม่ผ่าน Jekyll
+      # เว็บนี้เป็น HTML/CSS/JS ล้วน จึงไม่ต้อง build อะไรเลย
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
