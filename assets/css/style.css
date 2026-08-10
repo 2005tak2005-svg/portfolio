@@ -271,6 +271,16 @@ a { color: inherit; }
 
 .work__figure { margin: 0; }
 
+/* ผลงานที่เล่าด้วยสองภาพประกอบกันเป็นเหตุการณ์เดียว วางคู่กันแทนกรอบเดี่ยว */
+.work__figure--pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+@media (min-width: 560px) {
+  .work__figure--pair { grid-template-columns: 1fr 1fr; }
+}
+
 .work__body { margin-top: 1.25rem; }
 
 .work__index {
@@ -379,10 +389,9 @@ a { color: inherit; }
 }
 
 .flow__label {
-  font-size: .75rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
+  font-size: clamp(1.125rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .flow__steps {
@@ -400,6 +409,27 @@ a { color: inherit; }
 .flow__steps li:not(:last-child)::after {
   content: "→";
   margin-inline: .6rem;
+  color: var(--ink-mute);
+}
+
+/* รายการทีเด็ด/จุดขาย ไม่ใช่ขั้นตอนต่อเนื่อง ใช้บูลเลตแบบขีด แทนลูกศรไล่ขั้น */
+.flow__highlights {
+  margin-top: .75rem;
+  padding: 0;
+  list-style: none;
+  font-size: .9375rem;
+  color: var(--ink-soft);
+}
+.flow__highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+  max-width: 46rem;
+}
+.flow__highlights li + li { margin-top: .4rem; }
+.flow__highlights li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
   color: var(--ink-mute);
 }
 
@@ -455,36 +485,26 @@ a { color: inherit; }
 
 .build__links { margin-top: 1rem; }
 
+/* คลิปสาธิต — ใส่เฉพาะบางชิ้นที่มีของจริงให้ดู ใช้กรอบเดียวกับ .frame แต่ไม่ครอบ aspect-ratio ตายตัว */
+.build__media {
+  margin-top: 1.25rem;
+  max-width: 32rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+.build__media video {
+  display: block;
+  width: 100%;
+}
+.build__media figcaption {
+  padding: .6rem .8rem;
+  border-top: 1px solid var(--rule);
+  font-size: .8125rem;
+  color: var(--ink-mute);
+}
+
 @media (min-width: 720px) {
   .build { grid-template-columns: 14rem 1fr; }
-}
-
-/* ---- 9. เส้นทาง --------------------------------------------- */
-.timeline__item {
-  display: grid;
-  gap: .35rem 2.5rem;
-  padding-block: clamp(1.5rem, 3vw, 2.25rem);
-  border-top: 1px solid var(--rule);
-}
-.timeline__item:last-child { border-bottom: 1px solid var(--rule); }
-
-.timeline__year {
-  font-size: .8125rem;
-  letter-spacing: .1em;
-  color: var(--ink-mute);
-  padding-top: .5rem;
-}
-
-.timeline__body h3 {
-  font-size: clamp(1.0625rem, 2vw, 1.3rem);
-}
-.timeline__body p {
-  margin-top: .4rem;
-  color: var(--ink-soft);
-}
-
-@media (min-width: 720px) {
-  .timeline__item { grid-template-columns: 14rem 1fr; }
 }
 
 /* ---- 10. เกี่ยวกับ ------------------------------------------- */
