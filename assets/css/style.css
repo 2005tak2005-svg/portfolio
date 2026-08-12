@@ -11,7 +11,13 @@
   --ink-soft:   #4A443B;
   --ink-mute:   #6B6459;
   --rule:       #DCD6CC;
-  --accent:     #6E1F2A;
+  --accent:     #A9812E;
+
+  /* โทนทอง/ดินเผา + หินอ่อน สำหรับรูปทรงตกแต่งในฮีโร่และปุ่มเด่น */
+  --gold:       #C7A968;
+  --gold-deep:  #A9812E;
+  --stone:      #ABA593;
+  --stone-soft: #D8D2C2;
 
   --serif: "Noto Serif Thai", Georgia, "Times New Roman", serif;
   --sans:  "IBM Plex Sans Thai", -apple-system, "Segoe UI", sans-serif;
@@ -98,13 +104,29 @@ a { color: inherit; }
 
 .site-header__inner {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
   padding-block: 1.75rem;
   transition: padding-block .35s var(--ease);
 }
 .site-header.is-scrolled .site-header__inner { padding-block: .9rem; }
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ไอคอนแฮมเบอร์เกอร์ — ตกแต่งล้วน ไม่มีเมนูซ่อนให้กด เมนูจริงคือ .site-nav ที่โชว์อยู่แล้ว */
+.nav-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 1.25rem;
+}
+.nav-icon span { display: block; height: 2px; background: var(--ink); }
+.nav-icon span:nth-child(2) { width: 65%; }
 
 .wordmark {
   font-family: var(--serif);
@@ -116,9 +138,13 @@ a { color: inherit; }
 
 .site-nav {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
-  gap: clamp(.9rem, 2.2vw, 2rem);
-  font-size: .875rem;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 2.25rem);
+  font-size: .8125rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: var(--ink-mute);
 }
 .site-nav a {
@@ -129,34 +155,60 @@ a { color: inherit; }
 }
 .site-nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 
-@media (max-width: 560px) {
-  .site-header__inner { flex-direction: column; align-items: flex-start; gap: .6rem; }
-  .site-nav { font-size: .8125rem; }
+/* ตรามุมขวา — อักษรย่อในวงกลม แทนโลโก้ */
+.monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  font-family: var(--serif);
+  font-size: .8125rem;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 720px) {
+  .site-header__inner { flex-wrap: wrap; row-gap: .9rem; }
+  .site-nav { order: 3; flex-basis: 100%; justify-content: flex-start; font-size: .75rem; }
 }
 
 /* ---- 4. ส่วนหัวหน้าแรก --------------------------------------- */
 .hero {
-  padding-block: clamp(4rem, 14vh, 9rem) clamp(3.5rem, 10vh, 7rem);
+  padding-block: clamp(3rem, 10vh, 6rem) clamp(3.5rem, 10vh, 7rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(3rem, 7vw, 5rem);
+}
+@media (min-width: 880px) {
+  .hero__grid { grid-template-columns: 1.05fr .95fr; }
 }
 
 .eyebrow {
   font-size: .75rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--gold-deep);
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
 .hero__name {
-  font-size: clamp(2.75rem, 8vw, 5.75rem);
-  line-height: 1.08;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-transform: uppercase;
 }
 
 .hero__role {
   font-family: var(--serif);
-  font-size: clamp(1.125rem, 2.4vw, 1.6rem);
+  font-size: clamp(1.0625rem, 2vw, 1.35rem);
   color: var(--ink-soft);
   margin-top: 1.25rem;
   max-width: 34ch;
@@ -164,15 +216,105 @@ a { color: inherit; }
 }
 
 .hero__intro {
-  margin-top: clamp(2rem, 5vw, 3rem);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
   color: var(--ink-soft);
+  font-style: italic;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 2rem;
   margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+/* ปุ่มเด่นทรงแคปซูล ใช้กับ call-to-action หลักของหน้าเท่านั้น */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .95rem 1.9rem;
+  border-radius: 999px;
+  transition: background-color .3s var(--ease);
+}
+.btn-pill:hover { background: var(--gold-deep); }
+
+/* ---- 4.1 ภาพประกอบฮีโร่ + รูปทรงตกแต่ง ------------------------- */
+.hero__visual {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 22rem);
+  padding: 2.75rem 1.5rem 3.25rem;
+}
+
+.hero__portrait {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: 999px 999px 4px 4px;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+.hero__portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+.shape { position: absolute; z-index: 0; pointer-events: none; }
+
+.shape--circle {
+  top: 0;
+  right: 0;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.shape--half-a {
+  top: 2.25rem;
+  left: .5rem;
+  width: 4.5rem;
+  height: 2.25rem;
+  border-radius: 0 0 999px 999px;
+  background: var(--stone);
+}
+
+.shape--stack {
+  left: -.5rem;
+  bottom: 2.5rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: var(--stone-soft);
+  clip-path: polygon(0 100%, 0 66%, 33% 66%, 33% 33%, 66% 33%, 66% 0, 100% 0, 100% 100%);
+}
+
+/* วงแหวนซ้อนชั้น มุมล่างขวา — เส้นบางล้วน ไม่ใช้พื้นทึบ */
+.shape--arcs {
+  right: -.75rem;
+  bottom: -.75rem;
+  width: 6rem;
+  height: 6rem;
+}
+.shape--arcs span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+}
+.shape--arcs span:nth-child(1) { width: 1.75rem; height: 1.75rem; }
+.shape--arcs span:nth-child(2) { width: 3.25rem; height: 3.25rem; }
+.shape--arcs span:nth-child(3) { width: 4.75rem; height: 4.75rem; }
+.shape--arcs span:nth-child(4) { width: 6.25rem; height: 6.25rem; }
+
+@media (max-width: 560px) {
+  .hero__visual { width: min(100%, 17rem); padding: 2rem 1.25rem 2.5rem; }
 }
 
 /* ลิงก์แบบมีลูกศร — เส้นใต้วิ่งจากซ้ายไปขวาเมื่อชี้ */
@@ -201,9 +343,28 @@ a { color: inherit; }
 
 /* ---- 5. โครงของแต่ละหมวด ------------------------------------ */
 .section {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   padding-block: clamp(3.5rem, 9vh, 6.5rem);
   border-top: 1px solid var(--rule);
 }
+
+/* รูปทรงตกแต่งประจำหมวด — ระบบเดียวกับที่ใช้ใน hero
+   วางไว้เป็นลูกแรกของ .section เสมอ z-index ติดลบ+section เป็น stacking context
+   ทำให้ลอยอยู่หลังเนื้อหาเสมอ ไม่มีทางบังตัวหนังสือ ถึงจะไปวางทับพิกัดเดียวกันก็ตาม */
+.deco {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.deco--circle-gold  { border-radius: 50%; background: var(--gold); }
+.deco--circle-stone { border-radius: 50%; background: var(--stone); }
+.deco--half-stone   { border-radius: 0 0 999px 999px; background: var(--stone); }
+.deco--half-gold    { border-radius: 999px 999px 0 0; background: var(--gold); }
+.deco--ring-gold     { border: 1.5px solid var(--gold);  border-radius: 50%; }
+.deco--ring-stone    { border: 1.5px solid var(--stone); border-radius: 50%; }
+.deco--dot { border-radius: 50%; background: var(--gold-deep); }
 
 .section__head {
   display: flex;
@@ -231,6 +392,11 @@ a { color: inherit; }
   .section__note { margin-top: .5rem; }
 }
 
+/* ปุ่มเชิญดูคลิปผลงานเพิ่มเติมบน TikTok — วางใต้หัวข้อหมวดผลงาน */
+.work__tiktok {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
 /* ---- 6. กรอบรูป (ที่ว่างสำหรับภาพที่ยังไม่ใส่) ------------------ */
 .frame {
   position: relative;
@@ -240,11 +406,18 @@ a { color: inherit; }
   overflow: hidden;
 }
 
-.frame img {
+.frame img,
+.frame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .7s var(--ease);
+}
+
+/* กรอบแนวตั้ง (เช่นคลิป 9:16) — คุมไม่ให้ยืดเต็มแถวจนสูงเกินไป แล้วจัดกึ่งกลาง */
+.frame--portrait {
+  max-width: 24rem;
+  margin-inline: auto;
 }
 
 /* ป้ายบอกว่าช่องนี้รอไฟล์ชื่ออะไร อัตราส่วนเท่าไร */
@@ -279,6 +452,21 @@ a { color: inherit; }
 }
 @media (min-width: 560px) {
   .work__figure--pair { grid-template-columns: 1fr 1fr; }
+}
+
+/* ผลงานที่เล่าด้วยสี่ภาพ แต่ละภาพมีคำอธิบายของตัวเอง — ใช้เมื่อภาพมาจากหลายช่วงของกิจกรรมเดียวกัน */
+.work__figure--quad {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+@media (min-width: 560px) {
+  .work__figure--quad { grid-template-columns: 1fr 1fr; }
+}
+.work__quad-caption {
+  margin-top: .6rem;
+  font-size: .8125rem;
+  color: var(--ink-mute);
 }
 
 .work__body { margin-top: 1.25rem; }
@@ -488,6 +676,7 @@ a { color: inherit; }
 /* คลิปสาธิต — ใส่เฉพาะบางชิ้นที่มีของจริงให้ดู ใช้กรอบเดียวกับ .frame แต่ไม่ครอบ aspect-ratio ตายตัว */
 .build__media {
   margin-top: 1.25rem;
+  margin-inline: auto;
   max-width: 32rem;
   border: 1px solid var(--rule);
   background: var(--paper-deep);
@@ -495,6 +684,7 @@ a { color: inherit; }
 .build__media video {
   display: block;
   width: 100%;
+  height: auto;
 }
 .build__media figcaption {
   padding: .6rem .8rem;
@@ -515,10 +705,23 @@ a { color: inherit; }
 }
 .about__text > p { margin-top: 1.25rem; color: var(--ink-soft); }
 .about__text .section__title { margin-bottom: .5rem; }
+
+/* ล้อกับภาพในฮีโร่ — ซุ้มโค้งบนรูป + รูปทรงตกแต่งรอบข้าง */
+.about__visual {
+  position: relative;
+  margin: 0 auto;
+  width: min(100%, 20rem);
+  padding: 1.5rem 1.25rem 2rem;
+}
 .about__portrait { margin: 0; }
+.frame--arch {
+  border-radius: 999px 999px 4px 4px;
+  border: none;
+}
 
 @media (min-width: 860px) {
   .about { grid-template-columns: 1fr 22rem; }
+  .about__visual { margin: 0; }
 }
 
 /* ---- 11. ติดต่อ + ท้ายเว็บ ----------------------------------- */
@@ -534,6 +737,18 @@ a { color: inherit; }
   margin-top: clamp(2rem, 5vw, 3rem);
 }
 
+/* ลิงก์ที่มีไอคอนนำหน้า (GitHub, LINE) — ไอคอนย่อให้เท่าความสูงตัวอักษรพอดี ไม่ให้ใหญ่กว่าตัวหนังสือ */
+.contact__link--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+}
+.contact__icon {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+}
+
 .site-footer {
   border-top: 1px solid var(--rule);
   padding-block: 2.5rem;
@@ -545,6 +760,16 @@ a { color: inherit; }
   flex-wrap: wrap;
   justify-content: space-between;
   gap: .5rem 2rem;
+}
+.site-footer__inner p::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: .55rem;
+  border-radius: 50%;
+  background: var(--gold);
+  vertical-align: middle;
 }
 
 /* ---- 12. ภาพขยาย -------------------------------------------- */

@@ -30,7 +30,10 @@
 
 <header class="site-header" id="siteHeader">
   <div class="shell site-header__inner">
-    <a class="wordmark" href="#top">‹ ชื่อของคุณ ›</a>
+    <div class="site-header__brand">
+      <span class="nav-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <a class="wordmark" href="#top">‹ ชื่อของคุณ ›</a>
+    </div>
     <nav class="site-nav" aria-label="เมนูหลัก">
       <a href="#work">ผลงาน</a>
       <a href="#builds">เครื่องมือที่สร้าง</a>
@@ -38,6 +41,7 @@
       <a href="#about">เกี่ยวกับ</a>
       <a href="#contact">ติดต่อ</a>
     </nav>
+    <span class="monogram" aria-hidden="true">PG</span>
   </div>
 </header>
 
@@ -45,22 +49,36 @@
 
   <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
   <section class="hero" id="top">
-    <div class="shell">
-      <p class="eyebrow" data-reveal>welcome..</p>
-      <h1 class="hero__name" data-reveal>Pete's Gallery</h1>
-      <p class="hero__role" data-reveal>  ออกแบบระบบ​ AI agent อัตโนมัติและสร้างเครื่องมือใช้งานเองในตำแหน่ง Content Creator แก่บริษัทครอบครัว </p>
-      <p class="hero__intro measure" data-reveal>
-        ‹ สวัสดีครับเรียกผมว่า "ทักทาย" นะครับ เป็นนึกศึกษาชั้นปี4 มหาวิทยาลัยแม่โจ้ คณะบริหารธุรกิจ ถึงจะเป็นเด็กบริหารแต่สาขาของผมเน้นไปด้านคอมพิวเตอร์ ภาษาโค้ด ฯลฯ นำมาผนวกกับการทำธุรกิจเหมาะมากกับการค้าขายยยุคนี้ ผมอาจไม่ได้เก่งหรือเชี่ยวชาญด้านใดด้านคอมเป็นเลิศ แต่ผมพร้อมเรียนรู้พยายามค้นหาสิ่งใหม่อยู่ตลอดด้วยตัวผมเองเพราะนั้นคือกำไรชีวิตที่ไม่มีวันขาดทุนครับ ›
-      </p>
-      <p class="hero__actions" data-reveal>
-        <a class="link-arrow" href="#work">ดูผลงาน</a>
-        <a class="link-arrow" href="#contact">ติดต่อ</a>
-      </p>
+    <div class="shell hero__grid">
+      <div class="hero__content">
+        <p class="eyebrow" data-reveal>welcome..</p>
+        <h1 class="hero__name" data-reveal>Pete's Gallery</h1>
+        <p class="hero__role" data-reveal>  ออกแบบระบบ​ AI agent อัตโนมัติและสร้างเครื่องมือใช้งานเองในตำแหน่ง Content Creator แก่บริษัทครอบครัว </p>
+        <p class="hero__intro measure" data-reveal>
+          ‹ สวัสดีครับเรียกผมว่า "ทักทาย" นะครับ เป็นนึกศึกษาชั้นปี4 มหาวิทยาลัยแม่โจ้ คณะบริหารธุรกิจ ถึงจะเป็นเด็กบริหารแต่สาขาของผมเน้นไปด้านคอมพิวเตอร์ ภาษาโค้ด ฯลฯ นำมาผนวกกับการทำธุรกิจเหมาะมากกับการค้าขายยยุคนี้ ผมอาจไม่ได้เก่งหรือเชี่ยวชาญด้านใดด้านคอมเป็นเลิศ แต่ผมพร้อมเรียนรู้พยายามค้นหาสิ่งใหม่อยู่ตลอดด้วยตัวผมเองเพราะนั้นคือกำไรชีวิตที่ไม่มีวันขาดทุนครับ ›
+        </p>
+        <p class="hero__actions" data-reveal>
+          <a class="btn-pill" href="#work">ดูผลงาน</a>
+          <a class="link-arrow" href="#contact">ติดต่อ</a>
+        </p>
+      </div>
+
+      <div class="hero__visual" data-reveal>
+        <span class="shape shape--circle" aria-hidden="true"></span>
+        <span class="shape shape--half-a" aria-hidden="true"></span>
+        <span class="shape shape--stack" aria-hidden="true"></span>
+        <span class="shape shape--arcs" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <figure class="hero__portrait">
+          <img src="images/portrait.jpg" alt="ยืนกอดอกในชุดเสื้อไหมพรมคอวีลายทาง ผูกเนคไท" width="1200" height="1600" loading="eager">
+        </figure>
+      </div>
     </div>
   </section>
 
   <!-- ══ ผลงาน ═════════════════════════════════════════════════════════ -->
   <section class="section" id="work" aria-labelledby="work-title">
+    <span class="deco deco--ring-stone" style="width:5.5rem;height:5.5rem;top:-1.5rem;right:2rem" aria-hidden="true"></span>
+    <span class="deco deco--circle-gold" style="width:4.5rem;height:4.5rem;bottom:-1.75rem;left:-1.25rem" aria-hidden="true"></span>
     <div class="shell">
       <div class="section__head">
         <h2 class="section__title" id="work-title" data-reveal>ผลงาน</h2>
@@ -74,10 +92,8 @@
         <!-- ── 01 ─────────────────────────────────────────────────────── -->
         <article class="work" data-span="full" data-reveal>
           <figure class="work__figure">
-            <div class="frame" style="--ratio: 16 / 9">
-              <!-- เมื่อมีไฟล์ภาพแล้ว ลบ <span class="frame__hint"> ทิ้ง แล้วเอา <img> ข้างล่างออกจากคอมเมนต์ -->
-              <span class="frame__hint">images/work-01.jpg · 16:9</span>
-              <!-- <img src="images/work-01.jpg" alt="‹ อธิบายภาพนี้ให้คนที่มองไม่เห็นเข้าใจ ›" width="1600" height="900" loading="lazy"> -->
+            <div class="frame frame--portrait" style="--ratio: 9 / 16">
+              <video src="videos/work-01.mp4" controls preload="metadata" playsinline width="572" height="1280"></video>
             </div>
           </figure>
           <div class="work__body">
@@ -119,18 +135,38 @@
         </article>
 
         <!-- ── 04 ─────────────────────────────────────────────────────── -->
-        <article class="work" data-span="wide" data-reveal>
-          <figure class="work__figure">
-            <div class="frame" style="--ratio: 3 / 2">
-              <span class="frame__hint">images/work-04.jpg · 3:2</span>
-              <!-- <img src="images/work-04.jpg" alt="‹ คำอธิบายภาพ ›" width="1600" height="1067" loading="lazy"> -->
+        <article class="work" data-span="full" data-reveal>
+          <figure class="work__figure work__figure--quad">
+            <div class="work__quad-item">
+              <div class="frame" style="--ratio: 4 / 3">
+                <img src="images/work-04a.jpg" alt="กลุ่มนักศึกษาถ่ายภาพหมู่หน้าอาคารหอนาฬิกา มหาวิทยาลัยเทคโนโลยีและธุรกิจฉงชิ่ง ระหว่างทัวร์แคมปัส" width="1600" height="1200" loading="lazy">
+              </div>
+              <p class="work__quad-caption">‹ คำอธิบายภาพนี้ ›</p>
+            </div>
+            <div class="work__quad-item">
+              <div class="frame" style="--ratio: 4 / 3">
+                <img src="images/work-04b.jpg" alt="ฟังบรรยายสรุปธุรกิจที่สำนักงานบริษัทการค้าระหว่างประเทศในฉงชิ่ง ระหว่างทัวร์ดูงานบริษัทจริง" width="1280" height="960" loading="lazy">
+              </div>
+              <p class="work__quad-caption">‹ คำอธิบายภาพนี้ ›</p>
+            </div>
+            <div class="work__quad-item">
+              <div class="frame" style="--ratio: 4 / 3">
+                <img src="images/work-04c.jpg" alt="พิธีรับประกาศนียบัตรจบหลักสูตร Silk Road Encounters in Chongqing: International Elite Training Program on Cross-Border E-Commerce and the Western Land-Sea Trade Corridor" width="1600" height="1200" loading="lazy">
+              </div>
+              <p class="work__quad-caption">‹ คำอธิบายภาพนี้ ›</p>
+            </div>
+            <div class="work__quad-item">
+              <div class="frame" style="--ratio: 4 / 3">
+                <img src="images/work-04d.jpg" alt="พิธีมอบรางวัลปิดโครงการ ร่วมกับผู้จัดงานและวิทยากรของหลักสูตร" width="1600" height="940" loading="lazy">
+              </div>
+              <p class="work__quad-caption">‹ คำอธิบายภาพนี้ ›</p>
             </div>
           </figure>
           <div class="work__body">
             <p class="work__index">04</p>
             <h3 class="work__title"><a href="#" class="work__link">‹ ชื่อผลงานชิ้นที่สี่ ›</a></h3>
             <p class="work__desc measure">‹ อธิบายหนึ่งถึงสองประโยค ›</p>
-            <p class="work__meta"><span>2567</span><span>‹ บทบาท ›</span><span>‹ เครื่องมือ ›</span></p>
+            <p class="work__meta"><span>‹ ปี ›</span><span>‹ บทบาท ›</span><span>‹ เครื่องมือ ›</span></p>
           </div>
         </article>
 
@@ -200,11 +236,19 @@
        ถ้าเครื่องมือชิ้นไหนมีภาพประกอบสวย ๆ ให้ย้ายไปใส่ในหมวด "ผลงาน" แทน
        ══════════════════════════════════════════════════════════════════ -->
   <section class="section" id="builds" aria-labelledby="builds-title">
+    <span class="deco deco--half-gold" style="width:4.5rem;height:2.25rem;top:2.5rem;right:-1rem" aria-hidden="true"></span>
+    <span class="deco deco--ring-gold" style="width:5rem;height:5rem;bottom:1rem;left:-1.75rem" aria-hidden="true"></span>
     <div class="shell">
       <div class="section__head">
         <h2 class="section__title" id="builds-title" data-reveal>เครื่องมือที่สร้างเอง</h2>
         <p class="section__note measure" data-reveal>เขียนขึ้นเพื่อแก้ปัญหาหน้างานจริง ไม่ใช่งานฝึกหัด</p>
       </div>
+      <p class="work__tiktok" data-reveal>
+        <a class="btn-pill contact__link--icon" href="https://www.tiktok.com/@nmarine168" target="_blank" rel="noopener">
+          <svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg>
+          ดูคลิปสาธิตเพิ่มเติมได้ที่ TikTok
+        </a>
+      </p>
 
       <div class="flow" data-reveal>
         <p class="flow__label">เฟส 1 — จากไฟล์ไลฟ์ดิบ ถึงคลิปต่อสินค้า</p>
@@ -230,7 +274,7 @@
         </figure>
       </div>
 
-         <div class="flow" data-reveal>
+      <div class="flow" data-reveal>
         <p class="flow__label">สคริปพรอมพ์ปรับปรุงรูปใน GEM พร้อมกันด้วยคำสั่งเดียว</p>
         <ul class="flow__highlights">
           <li>ทีเด็ด = ประหยัดเวลานั่งไลฟ์พรอมพ์ที่ละรูป ยังไม่รวมตอนมันอ๊องเจนอะไรออกมาไม่รู้ เหมาะสำหรับคนนที่แต่งรูปสินค้าไม่เก่ง</li>
@@ -243,66 +287,6 @@
       </div>
 
       <ol class="builds">
-
-        <li class="build" data-reveal>
-          <div class="build__aside">
-            <p class="build__index">01</p>
-            <p class="build__stack">Node.js · ffmpeg · whisper.cpp</p>
-          </div>
-          <div class="build__body">
-            <h3 class="build__title">video-understand</h3>
-            <p class="build__desc measure">ไลฟ์ขายของยาวเป็นชั่วโมง จะรู้ว่าใครพูดถึงสินค้าชิ้นไหนตอนไหน ต้องนั่งดูทั้งคลิปเอง</p>
-            <p class="build__detail measure">ถอดเสียงคลิปทั้งไฟล์และหาช่วงเวลาที่พูดถึงสินค้าแต่ละชิ้นให้อัตโนมัติ ทำงานในเครื่องล้วน ไม่ส่งไฟล์ขึ้นคลาวด์ ไม่มีค่า API ต่อการรัน</p>
-          </div>
-        </li>
-
-        <li class="build" data-reveal>
-          <div class="build__aside">
-            <p class="build__index">02</p>
-            <p class="build__stack">Node.js · ffmpeg · browser automation</p>
-          </div>
-          <div class="build__body">
-            <h3 class="build__title">live-daily-cut</h3>
-            <p class="build__desc measure">หลังไลฟ์ขายของจบทุกวัน ต้องโหลดไฟล์ ฟังทวนทั้งไฟล์ แล้วตัดแยกเป็นคลิปทีละสินค้าเอง งานซ้ำเดิมที่กินเวลาหลักชั่วโมงทุกวัน</p>
-            <p class="build__detail measure">ดาวน์โหลดไฟล์ไลฟ์ล่าสุดจากแดชบอร์ดให้เอง ถอดเสียง หาขอบเขตของแต่ละสินค้า แล้วเสนอรายการช่วงเวลาให้ตรวจก่อนตัดจริงเสมอ ต่อยอดจาก video-understand</p>
-          </div>
-        </li>
-
-        <li class="build" data-reveal>
-          <div class="build__aside">
-            <p class="build__index">03</p>
-            <p class="build__stack">Node.js · whisper.cpp · Remotion</p>
-          </div>
-          <div class="build__body">
-            <h3 class="build__title">reel-refiner</h3>
-            <p class="build__desc measure">คลิปต่อสินค้าที่ตัดมาแล้วยังมีช่วงเงียบเยอะและไม่มีคำบรรยาย ต้องมาตัดต่อและใส่ซับเองทีละคลิปก่อนโพสต์ได้</p>
-            <p class="build__detail measure">ตัดช่วงที่ไม่มีคนพูดออกโดยดูจากบทพูดจริงแทนระดับเสียง แล้วเบิร์นคำบรรยายไทยที่จับจังหวะคำพูดลงคลิปให้อัตโนมัติ</p>
-          </div>
-        </li>
-
-        <li class="build" data-reveal>
-          <div class="build__aside">
-            <p class="build__index">04</p>
-            <p class="build__stack">Node.js · Python</p>
-          </div>
-          <div class="build__body">
-            <h3 class="build__title">capcut-draft</h3>
-            <p class="build__desc measure">คลิปที่ตัดต่อไว้แล้วอยากเอาไปแก้ต่อใน CapCut ปกติต้องนำเข้าไฟล์แล้วจัดวางคลิป เสียง คำบรรยายใหม่ทั้งหมดด้วยมือ</p>
-            <p class="build__detail measure">สร้างไฟล์โปรเจกต์ CapCut ที่เปิดมาแล้วมีคลิป เสียง และคำบรรยายวางเรียงพร้อมแก้ไขต่อได้ทันที โดยไม่ต้องเรนเดอร์วิดีโอออกมาก่อน</p>
-          </div>
-        </li>
-
-        <li class="build" data-reveal>
-          <div class="build__aside">
-            <p class="build__index">05</p>
-            <p class="build__stack">Swift · Apple Vision · Node.js</p>
-          </div>
-          <div class="build__body">
-            <h3 class="build__title">product-diecut</h3>
-            <p class="build__desc measure">รูปสินค้าที่ถ่ายมาต้องตัดพื้นหลังออกก่อนเอาไปวางบนพื้นอื่นหรือทำกราฟิก ปกติต้องเปิดโปรแกรมตัดต่อรูปแล้วไล่ขอบเอง</p>
-            <p class="build__detail measure">ตัดวัตถุออกจากพื้นหลังเป็นไฟล์ PNG โปร่งใสให้อัตโนมัติทีละรูปหรือทั้งโฟลเดอร์ ทำงานในเครื่องล้วน ไม่ต่อเน็ต</p>
-          </div>
-        </li>
 
         <!-- ╔══════════════════════════════════════════════════════════════╗
              ║  เพิ่มเครื่องมือชิ้นต่อไป: ก๊อปบล็อกข้างล่างไปวางเหนือคอมเมนต์นี้   ║
@@ -331,6 +315,8 @@
 
   <!-- ══ เครื่องมือที่ใช้เป็น (รายการทักษะสั้น ๆ) ══════════════════════════ -->
   <section class="section" id="tools" aria-labelledby="tools-title">
+    <span class="deco deco--circle-stone" style="width:3.5rem;height:3.5rem;top:.5rem;right:1.5rem" aria-hidden="true"></span>
+    <span class="deco deco--dot" style="width:.75rem;height:.75rem;bottom:2.5rem;left:1rem" aria-hidden="true"></span>
     <div class="shell">
       <div class="section__head">
         <h2 class="section__title" id="tools-title" data-reveal>เครื่องมือที่ใช้จริง</h2>
@@ -370,23 +356,31 @@
             ตอนนี้ผมทำงานตัดต่อ Content creator ให้บริษัทเครื่องประดับครอบครัวตัวเองอยู่ ซึ่งค่อนข้างราบรื่นชิล ผมจะให้ที่บ้านผมจัดการเรื่องฝึกงานนี้ให้ก็ได้ แต่นั้นไม่ใช่สิ่งที่ผมต้องการ ผมเชื่อเรื่องการทลายออกจาก Safe zone เพื่อการเติมโต และมันจะมาถึงในไม่ช้า อยากให้พี่ HR ที่ได้เข้ามาชม Landing Page นี้.. โปรดรับไว้พิจารณาด้วยครับ หวังว่าจะได้ร่วมงานแชร์ประสบการณ์กับพี่ๆในองค์กรณ์ของท่าน แล้วพบกันครับ  ›
         </p>
       </div>
-      <figure class="about__portrait" data-reveal>
-        <div class="frame" style="--ratio: 3 / 4">
-          <img src="images/portrait.jpg" alt="ถือธนูยืนหน้าเป้ายิงธนู เลนที่ 16" width="900" height="1200" loading="lazy">
-        </div>
-      </figure>
+      <div class="about__visual" data-reveal>
+        <span class="deco deco--circle-gold" style="width:4rem;height:4rem;top:0;left:0" aria-hidden="true"></span>
+        <span class="deco deco--half-stone" style="width:3.5rem;height:1.75rem;bottom:3rem;right:-.75rem" aria-hidden="true"></span>
+        <figure class="about__portrait">
+          <div class="frame frame--arch" style="--ratio: 3 / 4">
+            <img src="images/portrait-archery.jpg" alt="ถือธนูยืนหน้าเป้ายิงธนู เลนที่ 16" width="900" height="1200" loading="lazy">
+          </div>
+        </figure>
+      </div>
     </div>
   </section>
 
   <!-- ══ ติดต่อ ═════════════════════════════════════════════════════════ -->
   <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+    <span class="deco deco--ring-gold" style="width:7rem;height:7rem;bottom:-2rem;right:-1.5rem" aria-hidden="true"></span>
+    <span class="deco deco--circle-stone" style="width:3.5rem;height:3.5rem;top:1rem;left:-1rem" aria-hidden="true"></span>
     <div class="shell">
       <h2 class="section__title" id="contact-title" data-reveal>ติดต่อ</h2>
       <p class="contact__lead measure" data-reveal>ยินดีรับฟังทุกโอกาส — ส่งอีเมล ทักมาได้เลย</p>
       <ul class="contact__list">
-        <li data-reveal><a class="link-arrow link-arrow--lg" href="mailto:2005tak2005@gmail.com">2005tak2005@gmail.com</a></li>
-        <li data-reveal><a class="link-arrow link-arrow--lg" href="https://github.com/2005tak2005-svg" target="_blank" rel="noopener">GitHub</a></li>
-        <li data-reveal><a class="link-arrow link-arrow--lg" href="#"> เบอร์โทร: 0922924350</a></li>
+        <li data-reveal><a class="link-arrow link-arrow--lg contact__link--icon" href="mailto:2005tak2005@gmail.com"><svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/></svg>2005tak2005@gmail.com</a></li>
+        <li data-reveal><a class="link-arrow link-arrow--lg contact__link--icon" href="https://github.com/2005tak2005-svg" target="_blank" rel="noopener"><img class="contact__icon" src="assets/icons/github.png" alt="" width="24" height="24">GitHub</a></li>
+        <!-- ยังไม่มีลิงก์ LINE — แก้ href เป็นลิงก์แอดเฟรนด์จริงก่อนขึ้นเว็บ เช่น https://line.me/ti/p/xxxxx -->
+        <li data-reveal><a class="link-arrow link-arrow--lg contact__link--icon" href="#"><img class="contact__icon" src="assets/icons/line.webp" alt="" width="24" height="24">LINE</a></li>
+        <li data-reveal><a class="link-arrow link-arrow--lg contact__link--icon" href="tel:+66922924350"><svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"/></svg>0922924350</a></li>
       </ul>
     </div>
   </section>
