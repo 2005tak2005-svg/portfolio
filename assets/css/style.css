@@ -19,6 +19,12 @@
   --stone:      #ABA593;
   --stone-soft: #D8D2C2;
 
+  /* สีธงชาติ ใช้เฉพาะป้ายบอกประเทศในหมวดผลงาน (.flag-chip) เท่านั้น */
+  --flag-cn-red:  #DE2910;
+  --flag-cn-gold: #FFDE00;
+  --flag-tw-blue: #000095;
+  --flag-tw-red:  #FE0000;
+
   --serif: "Noto Serif Thai", Georgia, "Times New Roman", serif;
   --sans:  "IBM Plex Sans Thai", -apple-system, "Segoe UI", sans-serif;
 
@@ -313,6 +319,34 @@ a { color: inherit; }
 .shape--arcs span:nth-child(3) { width: 4.75rem; height: 4.75rem; }
 .shape--arcs span:nth-child(4) { width: 6.25rem; height: 6.25rem; }
 
+/* ป้ายธงชาติ — วงกลมสีตันสองก้อนแบ่งครึ่งทแยง แปะมุมกรอบรูปผลงานที่ไปทำกิจกรรมต่างประเทศ
+   ไม่ใช้ gradient ไล่เฉด ใช้ clip-path ตัดสีตันสองก้อนต่อกันแทน */
+.flag-chip {
+  position: absolute;
+  z-index: 0;
+  top: -1rem;
+  left: -1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.flag-chip::before,
+.flag-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.flag-chip::before { clip-path: polygon(0 0, 100% 0, 0 100%); }
+.flag-chip::after   { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+
+.flag-chip--cn::before { background: var(--flag-cn-red); }
+.flag-chip--cn::after  { background: var(--flag-cn-gold); }
+
+.flag-chip--tw::before { background: var(--flag-tw-blue); }
+.flag-chip--tw::after  { background: var(--flag-tw-red); }
+
 @media (max-width: 560px) {
   .hero__visual { width: min(100%, 17rem); padding: 2rem 1.25rem 2.5rem; }
 }
@@ -442,7 +476,7 @@ a { color: inherit; }
   gap: clamp(3rem, 7vw, 5.5rem) var(--gap);
 }
 
-.work__figure { margin: 0; }
+.work__figure { margin: 0; position: relative; }
 
 /* ผลงานที่เล่าด้วยสองภาพประกอบกันเป็นเหตุการณ์เดียว วางคู่กันแทนกรอบเดี่ยว */
 .work__figure--pair {
@@ -518,6 +552,25 @@ a { color: inherit; }
   top: .7em;
   width: 3px; height: 3px;
   background: var(--rule);
+}
+
+/* แถวโลโก้เครื่องมือที่ใช้จริง — แปะใต้ meta ของผลงาน/ไทม์ไลน์เครื่องมือที่เกี่ยวข้อง */
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+.tool-tag {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  object-fit: contain;
+  box-sizing: border-box;
 }
 
 /* จังหวะแบบนิตยสาร — ชิ้นใหญ่สลับชิ้นเล็ก ไม่ใช่ตารางเท่ากันหมด */
