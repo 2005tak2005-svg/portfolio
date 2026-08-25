@@ -1,6 +1,7 @@
 /* =============================================================
    ‹ ชื่อของคุณ › — สคริปต์ของหน้าเดียวจบ ไม่มีไลบรารีใด ๆ
-   ทำ 4 อย่าง: ค่อย ๆ แสดงเนื้อหาตอนเลื่อน, ย่อหัวเว็บ, กดดูภาพขยาย, ใส่ปีปัจจุบัน
+   ทำ 5 อย่าง: ค่อย ๆ แสดงเนื้อหาตอนเลื่อน, ย่อหัวเว็บ, กดดูภาพขยาย, ใส่ปีปัจจุบัน,
+   เลื่อน .deco/.shape เบา ๆ ตามตำแหน่งบนจอ (parallax)
    ============================================================= */
 (function () {
   "use strict";
@@ -86,5 +87,36 @@
     dialog.addEventListener("close", function () {
       dialogImg.removeAttribute("src");
     });
+  }
+
+  /* ---- 5. parallax เบา ๆ ของตกแต่ง (.deco / .shape) ----------
+     เลื่อนตามตำแหน่งจริงบนจอ (ไม่ใช่ scrollY ดิบ ๆ) เพื่อไม่ให้ของตกแต่ง
+     ที่อยู่ท้ายหน้าลอยไกลเกินจริงตอนเลื่อนผ่านหน้ายาว ๆ มา
+     ชิ้นไหนอยู่กลางจอพอดีแทบไม่ขยับ ชิ้นไหนอยู่ริมจอขยับมากสุด ±DRIFT_PX */
+  var driftEls = document.querySelectorAll(".deco, .shape");
+  var DRIFT_PX = 18;
+
+  if (driftEls.length && !reduced) {
+    var updateDrift = function () {
+      var vh = window.innerHeight;
+      driftEls.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        var centerOffset = (rect.top + rect.height / 2 - vh / 2) / vh;
+        centerOffset = Math.max(-1, Math.min(1, centerOffset));
+        el.style.transform = "translateY(" + (centerOffset * DRIFT_PX).toFixed(1) + "px)";
+      });
+    };
+    var driftTicking = false;
+    var onDriftScroll = function () {
+      if (driftTicking) return;
+      driftTicking = true;
+      window.requestAnimationFrame(function () {
+        updateDrift();
+        driftTicking = false;
+      });
+    };
+    window.addEventListener("scroll", onDriftScroll, { passive: true });
+    window.addEventListener("resize", updateDrift);
+    updateDrift();
   }
 })();
